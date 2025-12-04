@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -119,14 +120,10 @@ WSGI_APPLICATION = 'car_management_system.wsgi.application'
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql_psycopg2'),
-        'NAME': os.getenv('DB_NAME', 'car_rental'),
-        'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'admin'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('postgresql://car_db_jplz_user:RoqeHXSP6ffjnq0pORJlySHjLyNqbbmb@dpg-d4ojstali9vc7384202g-a/car_db_jplz'),
+        conn_max_age=600,
+    )
 }
 
 
