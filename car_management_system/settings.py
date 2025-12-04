@@ -123,6 +123,7 @@ DATABASES = {
     'default': dj_database_url.parse(
         'postgresql://car_db_jplz_user:RoqeHXSP6ffjnq0pORJlySHjLyNqbbmb@dpg-d4ojstali9vc7384202g-a.oregon-postgres.render.com/car_db_jplz',
         conn_max_age=600,
+        ssl_require=True,
     )
 }
 
