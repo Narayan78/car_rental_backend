@@ -120,8 +120,8 @@ WSGI_APPLICATION = 'car_management_system.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('postgresql://car_db_jplz_user:RoqeHXSP6ffjnq0pORJlySHjLyNqbbmb@dpg-d4ojstali9vc7384202g-a/car_db_jplz'),
+    'default': dj_database_url.parse(
+        'postgresql://car_db_jplz_user:RoqeHXSP6ffjnq0pORJlySHjLyNqbbmb@dpg-d4ojstali9vc7384202g-a/car_db_jplz',
         conn_max_age=600,
     )
 }
